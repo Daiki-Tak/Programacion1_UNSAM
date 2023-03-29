@@ -1,4 +1,4 @@
-# precio de la naranja
+# buscar_precios.py
 def buscar_precio(fruta):
     f=open('../Data/precios.csv', 'rt')
     try:

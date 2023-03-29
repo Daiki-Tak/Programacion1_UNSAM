@@ -1,19 +1,22 @@
 # costo_camion.py
+
+import csv
+
 def costo_camion(nombre_archivo):
     f = open(nombre_archivo, 'rt')
-    next(f)
+    rows = csv.reader(f)
+    headers = next(rows)
     costo_total=0
-    for line in f:
+    for row in rows:
         try:
-            row = line.split(',')
+            print(row)
             cajones=int(row[1])
-            precio=float(row[2].strip('\n'))
+            precio=float(row[2])
             costo_total+=(cajones*precio)
-        except:
-            print('Warning: el archivo posee lineas que no pueden ser procesadas.\n La l√≠nea se saltear√°.')
-            next(f)
+        except ValueError:
+            print('Warning: el archivo posee lineas que no pueden ser procesadas.\n La lÌnea se saltear·.')
     print(f'Costo total: {costo_total:.2f}')
     f.close()
 
-costo = costo_camion('../Data/camion.csv')
-costo = costo_camion('../Data/missing.csv')
+costo_camion('../Data/camion.csv')
+costo_camion('../Data/missing.csv')
