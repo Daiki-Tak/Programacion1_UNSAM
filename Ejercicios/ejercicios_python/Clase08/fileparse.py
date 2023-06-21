@@ -9,6 +9,7 @@ def parse_csv(iterable, select = None, types = None, has_headers = True, silence
     '''
     if select and not has_headers:
         raise RuntimeError("Para seleccionar, necesito encabezados.")
+    # Si en vez de un iterable se le pasa una cadena, asume que es el nombre de un archivo y lo abre.
     if type(iterable) == str:
         file = open(iterable, 'rt', encoding='utf-8')
         iterable = file
