@@ -5,7 +5,7 @@ def parse_csv(iterable, select = None, types = None, has_headers = True, silence
     '''
     Parsea un objeto iterable en una lista de registros.
     Puede recibir el nombre de un archivo en vez de un iterable.
-    Se puede seleccionar un subconjunto de las columnas.
+    Se puede seleccionar un subconjunto de las columnas y silenciar los errores.
     '''
     if select and not has_headers:
         raise RuntimeError("Para seleccionar, necesito encabezados.")
